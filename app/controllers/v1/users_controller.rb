@@ -7,7 +7,7 @@ module V1
 
       render json: { data: user.as_json(
         only: [:id, :full_name, :account_number, :amount],
-        include: { borrowed_books: { 
+        include: { borrowed_books: {
           only: [:id, :title, :author]
         }}
       )}, status: :ok

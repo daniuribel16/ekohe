@@ -24,6 +24,8 @@ rails db:migrate
 rails db:seed:books
 rails server
 ```
+### ENV
+create a file .env based on the existing .env.template configuring those key/value pairs according to your needs
 
 ## API Docs
 

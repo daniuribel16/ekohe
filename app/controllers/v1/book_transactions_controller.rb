@@ -2,7 +2,7 @@ module V1
   class BookTransactionsController < ApplicationController
 
     def create
-      b_trans = BookTransaction.where(user_id: params[:user_id], book_id: params[:book_id], end_date: [nil, ""]).first
+      b_trans = BookTransaction.where(user_id: params[:user_id], book_id: params[:book_id], end_date: nil).first
       return render json: { error: "User already has one of these" }, status: :unauthorized unless b_trans.nil?
 
       # check if user exist
@@ -30,7 +30,7 @@ module V1
 
     def update
       # find and check transaction
-      trans = BookTransaction.where(user_id: params[:user_id], book_id: params[:book_id], end_date: [nil, ""]).first
+      trans = BookTransaction.where(user_id: params[:user_id], book_id: params[:book_id], end_date: nil).first
       return render json: { error: "Invalid Params" }, status: :not_found if trans.nil?
       return render json: { error: "Book already returned"}, status: :bad_request if trans.end_date
 
