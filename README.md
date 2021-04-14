@@ -18,6 +18,7 @@ bundle install
 
 ## Usage
 
+create postgres database called as you named it on the database.yml. then run..
 ```bash
 rails db:migrate
 rails db:seed:books
